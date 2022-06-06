@@ -1,7 +1,7 @@
 export const IMAGES = {
   BACK: require('./images/cross.png'),
   back: require('./images/back.png'),
-  
+  add: require('./images/add.png'),
 };
 
 export const COLORS = {
