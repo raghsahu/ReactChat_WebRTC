@@ -4,6 +4,9 @@ import Header from './Header';
 import Input from './Input';
 import ProgressView from './ProgressView';
 import UserItemList from './UserItemList';
+import WebRTCUtils from './WebRTCUtils';
+import log      from './log';
+import logError      from './logError';
 
 export {
   Text,
@@ -12,4 +15,7 @@ export {
   Input,
   ProgressView,
   UserItemList,
+  WebRTCUtils,
+  log,
+  logError,
 };

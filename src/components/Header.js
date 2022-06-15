@@ -52,13 +52,13 @@ const Header = props => {
         {props.title}
       </Text>
 
-      {props.onEdit && (
+      {props.onVideoCall && (
         <TouchableOpacity
           style={{justifyContent: 'center', marginEnd: 5}}
-          onPress={props.onEdit}>
+          onPress={props.onVideoCall}>
           <Image
             style={styles.back}
-            source={IMAGES.edit}
+            source={IMAGES.videoCamera}
             resizeMode="contain"
             tintColor={COLORS.white}
           />

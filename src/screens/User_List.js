@@ -85,8 +85,6 @@ function User_List(props) {
                       headerTitle: 'GroupChat',
                       chatRoomId: threadIdGroup,
                       finalNodeId: 'GroupChat',
-                      chatRoomId1: '',
-                      finalNodeId1: '',
                       userId: id,
                       myName: name,
                     })
@@ -99,10 +97,8 @@ function User_List(props) {
                 if (threadId || threadId1) {
                   props.navigation.navigate('ChatScreen', {
                     headerTitle: recieverName,
-                    chatRoomId: threadId,
-                    chatRoomId1: threadId1,
-                    finalNodeId: getNodeId(name, recieverName),
-                    finalNodeId1: getNodeId1(name, recieverName),
+                    chatRoomId: threadId ? threadId : threadId1,
+                    finalNodeId: threadId ? getNodeId(name, recieverName) : getNodeId1(name, recieverName),
                     userId: id,
                     myName: name,
                   })
@@ -135,9 +131,9 @@ function User_List(props) {
           props.navigation.navigate('ChatScreen', {
             headerTitle: recieverName,
             chatRoomId: docRef.id,
-            chatRoomId1: '',
+           // chatRoomId1: '',
             finalNodeId: getNodeId(name, recieverName),
-            finalNodeId1: getNodeId1(name, recieverName),
+           // finalNodeId1: getNodeId1(name, recieverName),
             userId: id,
             myName: name,
           })
@@ -165,8 +161,6 @@ function User_List(props) {
             headerTitle: 'GroupChat',
             chatRoomId: docRef.id,
             finalNodeId: 'GroupChat',
-            chatRoomId1: '',
-            finalNodeId1: '',
             userId: id,
             myName: name,
           })

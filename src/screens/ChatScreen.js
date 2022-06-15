@@ -20,13 +20,11 @@ import firestore from '@react-native-firebase/firestore'
 import storage from '@react-native-firebase/storage';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import ActionSheet from 'react-native-actions-sheet';
-import moment from 'moment'; // date format
-//CONTEXT
-import { APPContext } from '../context/AppProvider';
+
 
 function ChatScreen(props) {
     const actionSheetRef = useRef();
-    const { headerTitle, chatRoomId, chatRoomId1, finalNodeId, finalNodeId1, userId, myName } = props.route.params;
+    const { headerTitle, chatRoomId, finalNodeId, userId, myName } = props.route.params;
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -40,8 +38,8 @@ function ChatScreen(props) {
     const getLatestMessage = () => {
         const unsubscribeListener = firestore()
             .collection('MESSAGES')
-            .doc(chatRoomId ? chatRoomId : chatRoomId1)
-            .collection(finalNodeId ? finalNodeId : finalNodeId1)
+            .doc(chatRoomId)
+            .collection(finalNodeId)
             .orderBy('createdAt', 'desc')
             .onSnapshot(querySnapshot => {
                 const messages = querySnapshot.docs.map(doc => {
@@ -159,6 +157,14 @@ function ChatScreen(props) {
                     title={headerTitle}
                     onBack={() => {
                         backAction();
+                    }}
+                    onVideoCall={() => {
+                       props.navigation.navigate('CallingScreen', {
+                        chatRoomId: chatRoomId,
+                        finalNodeId: finalNodeId,
+                        userId: userId,
+                        myName: myName,
+                       })
                     }}
                 />
             </SafeAreaView>

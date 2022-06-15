@@ -65,7 +65,6 @@ function Login(props) {
     }
     
   };
-
   function findLinkByName() {
     for (const item of userList) {
       if (item.name === email) {

@@ -2,6 +2,7 @@ export const IMAGES = {
   BACK: require('./images/cross.png'),
   back: require('./images/back.png'),
   add: require('./images/add.png'),
+  videoCamera: require('./images/video-camera.png'),
 };
 
 export const COLORS = {
